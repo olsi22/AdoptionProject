@@ -23,6 +23,7 @@
 				%i.fa.fa-comments-o
 				= pluralize(@post.comments.count, "Comment")
 			- if @post.user == current_user
+			
 				= link_to "Edit", edit_post_path(@post), class: "data"
 				= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "data"
 
@@ -74,10 +75,16 @@
 	- @comments.each do |comment|
 		.comment
 			%p.username= comment.user.name
+			%p.comment_author= comment.user.email
+		
+			= link_to "Edit", edit_post_comment_path(comment.post, comment)
+			= link_to "Delete Comment", [comment.post, comment], method: :delete, data: { confirm: "Are you sure?" }, class: "data"
 			%p.content= comment.content
 
 	= render "comments/form"
-	
+
+
+
 
 
 
