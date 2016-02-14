@@ -1,8 +1,8 @@
 = simple_form_for @post do |f|
 	= f.input :image
-	= f.input :title
-	= f.input :link
-	= f.input :contacts
-	= f.input :description
+	= f.input :title, label: 'Add Title', :required => true, input_html: { size: 18 }
+	= f.input :link, label:        'Enter Link:', input_html: { size: 18 }
+	= f.input :contacts, label:    'Contacts:'
+	= f.input :description, label: 'Description'
 
 	= f.button :submit

@@ -1,0 +1,6 @@
+%h1 Edit Reply
+
+= simple_form_for([@post, @comment]) do |f|
+
+	= f.input :content, label: "Eddit a comment"
+	= f.button :submit, class: "Eddit"
